@@ -24,8 +24,17 @@ public class pruebaAgencia {
 //		String posicion = "Base";//enum
 //		Club club = Padua;
 //		Integer triples = 100;
-		
-		
+
+	}
+
+	@Test
+	public void queNoSePuedaTenerDosJugadoresConElMismoDni() {
+
+	}
+	
+	@Test
+	public void queUnMismoDniPuedaHacerDosDisciplinas() {
+
 	}
 
 }

@@ -3,17 +3,15 @@ package ar.edu.unlam.pb2;
 public class Basquetbolista extends Jugador {
 
 	private Club club;
-	private Enum posicionBasquet;
+	private PosicionBasquet posicionBasquet;
 	private Integer triples;
 	private Integer puntos;
-	
 
-
-	public Basquetbolista(String nombre, Integer dni, Double precio, Integer anioNacimiento, Enum nacionalidad,
-			Double altura, Club club, Enum posicion, Integer triples, Integer puntos) {
+	public Basquetbolista(String nombre, Integer dni, Double precio, Integer anioNacimiento, Nacionalidad nacionalidad,
+			Double altura, Club club, PosicionBasquet posicionBasquet, Integer triples, Integer puntos) {
 		super(nombre, dni, precio, anioNacimiento, nacionalidad, altura);
 		this.club = club;
-		this.posicion = posicion;
+		this.posicionBasquet = posicionBasquet;
 		this.triples = triples;
 		this.puntos = puntos;
 	}
@@ -26,12 +24,12 @@ public class Basquetbolista extends Jugador {
 		this.club = club;
 	}
 
-	public Enum getPosicion() {
-		return posicion;
+	public PosicionBasquet getPosicion() {
+		return posicionBasquet;
 	}
 
-	public void setPosicion(Enum posicion) {
-		this.posicion = posicion;
+	public void setPosicion(PosicionBasquet posicion) {
+		this.posicionBasquet = posicion;
 	}
 
 	public Integer getTriples() {
@@ -49,7 +47,5 @@ public class Basquetbolista extends Jugador {
 	public void setPuntos(Integer puntos) {
 		this.puntos = puntos;
 	}
-
-	
 
 }
