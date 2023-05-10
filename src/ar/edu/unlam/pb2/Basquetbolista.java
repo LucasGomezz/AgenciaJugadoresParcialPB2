@@ -3,7 +3,7 @@ package ar.edu.unlam.pb2;
 public class Basquetbolista extends Jugador {
 
 	private Club club;
-	private Enum posicion;
+	private Enum posicionBasquet;
 	private Integer triples;
 	private Integer puntos;
 	
