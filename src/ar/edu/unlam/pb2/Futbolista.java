@@ -6,7 +6,8 @@ public class Futbolista extends Jugador {
 	private Club club;
 	private Integer goles;
 	private Integer asistencias;
-	public Futbolista(String nombre, Integer dni, Double precio, Integer anioNacimiento, Enum nacionalidad,
+
+	public Futbolista(String nombre, Integer dni, Double precio, Integer anioNacimiento, Nacionalidad nacionalidad,
 			Double altura, Double peso, PosicionFutbol posicionFutbol, Club club, Integer goles, Integer asistencias) {
 		super(nombre, dni, precio, anioNacimiento, nacionalidad, altura);
 		this.peso = peso;
@@ -15,36 +16,57 @@ public class Futbolista extends Jugador {
 		this.goles = goles;
 		this.asistencias = asistencias;
 	}
+
+	@Override
+	public void paseJugador(Club origen, Jugador jugador, Club destino) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void comprarJugador(Jugador jugador, Club comprador) {
+		// TODO Auto-generated method stub
+
+	}
+
 	public Double getPeso() {
 		return peso;
 	}
+
 	public void setPeso(Double peso) {
 		this.peso = peso;
 	}
-	public Enum getPosicionFutbol() {
+
+	public PosicionFutbol getPosicionFutbol() {
 		return posicionFutbol;
 	}
+
 	public void setPosicionFutbol(PosicionFutbol posicionFutbol) {
 		this.posicionFutbol = posicionFutbol;
 	}
+
 	public Club getClub() {
 		return club;
 	}
+
 	public void setClub(Club club) {
 		this.club = club;
 	}
+
 	public Integer getGoles() {
 		return goles;
 	}
+
 	public void setGoles(Integer goles) {
 		this.goles = goles;
 	}
+
 	public Integer getAsistencias() {
 		return asistencias;
 	}
+
 	public void setAsistencias(Integer asistencias) {
 		this.asistencias = asistencias;
 	}
-	
-	
+
 }
