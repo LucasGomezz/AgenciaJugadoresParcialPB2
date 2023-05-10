@@ -61,6 +61,45 @@ public class Club {
 		nadadores.add(nadador);
 	}
 
+	public Jugador jugadorMasCaro() {
+		Basquetbolista basMasCaro = null;
+		Tenista tenMasCaro = null;
+		Nadador nadMasCaro = null;
+		Futbolista futMasCaro = null;
+
+		for (Basquetbolista basquetbolista : basquetbolistas) {
+			if (basMasCaro == null || basquetbolista.getPrecio() > basMasCaro.getPrecio()) {
+				basMasCaro = basquetbolista;
+			}
+		}
+		for (Tenista tenista : tenistas) {
+			if (tenMasCaro == null || tenista.getPrecio() > tenMasCaro.getPrecio()) {
+				tenMasCaro = tenista;
+			}
+		}
+		for (Nadador nadador : nadadores) {
+			if (nadMasCaro == null || nadador.getPrecio() > nadMasCaro.getPrecio()) {
+				nadMasCaro = nadador;
+			}
+		}
+		for (Futbolista futbolista : futbolistas) {
+			if (futMasCaro == null || futbolista.getPrecio() > futMasCaro.getPrecio()) {
+				futMasCaro = futbolista;
+			}
+		}
+		if (basMasCaro.getPrecio() > tenMasCaro.getPrecio() && basMasCaro.getPrecio() > nadMasCaro.getPrecio()
+				&& basMasCaro.getPrecio() > futMasCaro.getPrecio()) {
+			return basMasCaro;
+		} else if (tenMasCaro.getPrecio() > nadMasCaro.getPrecio() && tenMasCaro.getPrecio() > futMasCaro.getPrecio()) {
+			return tenMasCaro;
+		} else if (nadMasCaro.getPrecio() > futMasCaro.getPrecio()) {
+			return nadMasCaro;
+		} else {
+			return futMasCaro;
+		}
+
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(nombre);

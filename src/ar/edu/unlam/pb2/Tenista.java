@@ -13,18 +13,6 @@ public class Tenista extends Jugador {
 		this.mejorRankingMundial = mejorRankingMundial;
 	}
 
-	@Override
-	public void paseJugador(Club origen, Jugador jugador, Club destino) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void comprarJugador(Jugador jugador, Club comprador) {
-		// TODO Auto-generated method stub
-
-	}
-
 	public Double getPeso() {
 		return peso;
 	}
@@ -48,6 +36,5 @@ public class Tenista extends Jugador {
 	public void setMejorRankingMundial(Integer mejorRankingMundial) {
 		this.mejorRankingMundial = mejorRankingMundial;
 	}
-	
 
 }

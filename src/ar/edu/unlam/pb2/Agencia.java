@@ -5,26 +5,30 @@ import java.util.HashSet;
 
 public class Agencia {
 	private HashSet<Club> clubes = new HashSet<>();
-	private ArrayList<Traspaso> traspasos= new ArrayList<>();
+	private ArrayList<Traspaso> traspasos = new ArrayList<>();
 
 	public void agregarClub(Club club) {
 		clubes.add(club);
 	}
+	
+	
 
 	public void paseBasquetbolista(Club origen, Club destino, Basquetbolista basquetbolista) {
 		Double seguro = basquetbolista.getPrecio() * 0.1;
 		origen.sacarBasquetbolista(basquetbolista);
 		destino.agregarBasquetbolista(basquetbolista);
 		Double precioTotal = basquetbolista.getPrecio() + seguro;
-		Traspaso traspaso=new Traspaso(origen.getNombre(), destino.getNombre(), basquetbolista.getNombre(), precioTotal, Disciplina.BASQUET);
+		Traspaso traspaso = new Traspaso(origen.getNombre(), destino.getNombre(), basquetbolista.getNombre(),
+				precioTotal, Disciplina.BASQUET);
 	}
 
 	public void paseTenista(Club origen, Club destino, Tenista tenista) {
-		Double viatico=100.0;
+		Double viatico = 100.0;
 		origen.sacarTenista(tenista);
 		destino.agregarTenista(tenista);
 		Double precioTotal = tenista.getPrecio() + viatico;
-		Traspaso traspaso=new Traspaso(origen.getNombre(), destino.getNombre(), tenista.getNombre(), precioTotal, Disciplina.TENIS);
+		Traspaso traspaso = new Traspaso(origen.getNombre(), destino.getNombre(), tenista.getNombre(), precioTotal,
+				Disciplina.TENIS);
 	}
 
 	public void paseFutbolista(Club origen, Club destino, Futbolista futbolista) {
@@ -32,16 +36,48 @@ public class Agencia {
 		origen.sacarFutbolista(futbolista);
 		destino.agregarFutbolista(futbolista);
 		Double precioTotal = futbolista.getPrecio() + seguro;
-		Traspaso traspaso=new Traspaso(origen.getNombre(), destino.getNombre(), futbolista.getNombre(), precioTotal, Disciplina.FUTBOL);
+		Traspaso traspaso = new Traspaso(origen.getNombre(), destino.getNombre(), futbolista.getNombre(), precioTotal,
+				Disciplina.FUTBOL);
 	}
 
 	public void paseNadador(Club origen, Club destino, Nadador nadador) {
-		Double bono=(double) (nadador.getMedallasGanadas()*200);
+		Double bono = (double) (nadador.getMedallasGanadas() * 200);
 		origen.sacarNadador(nadador);
 		destino.agregarNadador(nadador);
 		Double precioTotal = nadador.getPrecio() + bono;
-		Traspaso traspaso=new Traspaso(origen.getNombre(), destino.getNombre(), nadador.getNombre(), precioTotal, Disciplina.NATACION);
+		Traspaso traspaso = new Traspaso(origen.getNombre(), destino.getNombre(), nadador.getNombre(), precioTotal,
+				Disciplina.NATACION);
 
+	}
+
+	public void cambiarBasquetbolistaPorOtro(Club origen, Basquetbolista basquetbolistaOrigen, Club destino,
+			Basquetbolista basquetbolistaDestino) {
+		origen.sacarBasquetbolista(basquetbolistaOrigen);
+		destino.sacarBasquetbolista(basquetbolistaDestino);
+		origen.agregarBasquetbolista(basquetbolistaDestino);
+		destino.agregarBasquetbolista(basquetbolistaDestino);
+	}
+
+	public void cambiarFutbolistaPorOtro(Club origen, Futbolista futbolistaOrigen, Club destino,
+			Futbolista futbolistaDestino) {
+		origen.sacarFutbolista(futbolistaOrigen);
+		destino.sacarFutbolista(futbolistaDestino);
+		origen.agregarFutbolista(futbolistaDestino);
+		destino.agregarFutbolista(futbolistaOrigen);
+	}
+
+	public void cambiarTenistaPorOtro(Club origen, Tenista tenistaOrigen, Club destino, Tenista tenistaDestino) {
+		origen.sacarTenista(tenistaOrigen);
+		destino.sacarTenista(tenistaDestino);
+		origen.agregarTenista(tenistaDestino);
+		destino.agregarTenista(tenistaOrigen);
+	}
+
+	public void cambiarNadadorPorOtro(Club origen, Nadador nadadorOrigen, Club destino, Nadador nadadorDestino) {
+		origen.sacarNadador(nadadorOrigen);
+		destino.sacarNadador(nadadorDestino);
+		origen.agregarNadador(nadadorDestino);
+		destino.agregarNadador(nadadorOrigen);
 	}
 
 	public HashSet<Club> getClubes() {
