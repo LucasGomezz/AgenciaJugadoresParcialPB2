@@ -9,7 +9,7 @@ abstract public class Jugador {
 	private Integer edad;
 	private Nacionalidad nacionalidad;
 	private Double altura;
-	private Club club = null;
+	private Club club;
 
 	public Jugador(String nombre, Integer dni, Double precio, Integer anioNacimiento, Nacionalidad nacionalidad,
 			Double altura) {
