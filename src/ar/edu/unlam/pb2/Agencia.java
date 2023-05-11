@@ -10,43 +10,67 @@ public class Agencia {
 	public void agregarClub(Club club) {
 		clubes.add(club);
 	}
-	
-	
 
-	public void paseBasquetbolista(Club origen, Club destino, Basquetbolista basquetbolista) {
-		Double seguro = basquetbolista.getPrecio() * 0.1;
-		origen.sacarBasquetbolista(basquetbolista);
-		destino.agregarBasquetbolista(basquetbolista);
-		Double precioTotal = basquetbolista.getPrecio() + seguro;
-		Traspaso traspaso = new Traspaso(origen.getNombre(), destino.getNombre(), basquetbolista.getNombre(),
-				precioTotal, Disciplina.BASQUET);
+	public Boolean paseBasquetbolista(Club origen, Club destino, Basquetbolista basquetbolista) {
+
+		if (basquetbolista.getPrecio() < 1500) {
+			Double seguro = basquetbolista.getPrecio() * 0.1;
+			origen.sacarBasquetbolista(basquetbolista);
+			destino.agregarBasquetbolista(basquetbolista);
+			basquetbolista.setClub(destino);
+			Double precioTotal = basquetbolista.getPrecio() + seguro;
+			Traspaso traspaso = new Traspaso(origen.getNombre(), destino.getNombre(), basquetbolista.getNombre(),
+					precioTotal, Disciplina.BASQUET);
+			return true;
+		} else {
+			return false;
+		}
 	}
 
-	public void paseTenista(Club origen, Club destino, Tenista tenista) {
-		Double viatico = 100.0;
-		origen.sacarTenista(tenista);
-		destino.agregarTenista(tenista);
-		Double precioTotal = tenista.getPrecio() + viatico;
-		Traspaso traspaso = new Traspaso(origen.getNombre(), destino.getNombre(), tenista.getNombre(), precioTotal,
-				Disciplina.TENIS);
+	public Boolean paseTenista(Club origen, Club destino, Tenista tenista) {
+
+		if (tenista.getRankinMundialActual() < 100) {
+			Double viatico = 100.0;
+			origen.sacarTenista(tenista);
+			destino.agregarTenista(tenista);
+			tenista.setClub(destino);
+			Double precioTotal = tenista.getPrecio() + viatico;
+			Traspaso traspaso = new Traspaso(origen.getNombre(), destino.getNombre(), tenista.getNombre(), precioTotal,
+					Disciplina.TENIS);
+			return true;
+		} else {
+			return false;
+		}
 	}
 
-	public void paseFutbolista(Club origen, Club destino, Futbolista futbolista) {
-		Double seguro = futbolista.getPrecio() * 0.1;
-		origen.sacarFutbolista(futbolista);
-		destino.agregarFutbolista(futbolista);
-		Double precioTotal = futbolista.getPrecio() + seguro;
-		Traspaso traspaso = new Traspaso(origen.getNombre(), destino.getNombre(), futbolista.getNombre(), precioTotal,
-				Disciplina.FUTBOL);
+	public Boolean paseFutbolista(Club origen, Club destino, Futbolista futbolista) {
+
+		if (futbolista.getEdad() > 28) {
+			return false;
+		} else {
+			Double seguro = futbolista.getPrecio() * 0.1;
+			origen.sacarFutbolista(futbolista);
+			destino.agregarFutbolista(futbolista);
+			futbolista.setClub(destino);
+			Double precioTotal = futbolista.getPrecio() + seguro;
+			Traspaso traspaso = new Traspaso(origen.getNombre(), destino.getNombre(), futbolista.getNombre(),
+					precioTotal, Disciplina.FUTBOL);
+			return true;
+		}
 	}
 
-	public void paseNadador(Club origen, Club destino, Nadador nadador) {
-		Double bono = (double) (nadador.getMedallasGanadas() * 200);
-		origen.sacarNadador(nadador);
-		destino.agregarNadador(nadador);
-		Double precioTotal = nadador.getPrecio() + bono;
-		Traspaso traspaso = new Traspaso(origen.getNombre(), destino.getNombre(), nadador.getNombre(), precioTotal,
-				Disciplina.NATACION);
+	public Boolean paseNadador(Club origen, Club destino, Nadador nadador) {
+		if (nadador.getMedallasGanadas() >= 5) {
+			Double bono = (double) (nadador.getMedallasGanadas() * 200);
+			origen.sacarNadador(nadador);
+			destino.agregarNadador(nadador);
+			nadador.setClub(destino);
+			Double precioTotal = nadador.getPrecio() + bono;
+			Traspaso traspaso = new Traspaso(origen.getNombre(), destino.getNombre(), nadador.getNombre(), precioTotal,
+					Disciplina.NATACION);
+			return true;
+		}
+		return false;
 
 	}
 
@@ -56,6 +80,8 @@ public class Agencia {
 		destino.sacarBasquetbolista(basquetbolistaDestino);
 		origen.agregarBasquetbolista(basquetbolistaDestino);
 		destino.agregarBasquetbolista(basquetbolistaDestino);
+		basquetbolistaDestino.setClub(origen);
+		basquetbolistaOrigen.setClub(destino);
 	}
 
 	public void cambiarFutbolistaPorOtro(Club origen, Futbolista futbolistaOrigen, Club destino,
@@ -64,6 +90,8 @@ public class Agencia {
 		destino.sacarFutbolista(futbolistaDestino);
 		origen.agregarFutbolista(futbolistaDestino);
 		destino.agregarFutbolista(futbolistaOrigen);
+		futbolistaOrigen.setClub(destino);
+		futbolistaDestino.setClub(origen);
 	}
 
 	public void cambiarTenistaPorOtro(Club origen, Tenista tenistaOrigen, Club destino, Tenista tenistaDestino) {
@@ -71,6 +99,8 @@ public class Agencia {
 		destino.sacarTenista(tenistaDestino);
 		origen.agregarTenista(tenistaDestino);
 		destino.agregarTenista(tenistaOrigen);
+		tenistaOrigen.setClub(destino);
+		tenistaDestino.setClub(origen);
 	}
 
 	public void cambiarNadadorPorOtro(Club origen, Nadador nadadorOrigen, Club destino, Nadador nadadorDestino) {
@@ -78,6 +108,8 @@ public class Agencia {
 		destino.sacarNadador(nadadorDestino);
 		origen.agregarNadador(nadadorDestino);
 		destino.agregarNadador(nadadorOrigen);
+		nadadorOrigen.setClub(destino);
+		nadadorDestino.setClub(origen);
 	}
 
 	public HashSet<Club> getClubes() {

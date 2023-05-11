@@ -8,15 +8,15 @@ public class Futbolista extends Jugador {
 	private Integer asistencias;
 
 	public Futbolista(String nombre, Integer dni, Double precio, Integer anioNacimiento, Nacionalidad nacionalidad,
-			Double altura, Double peso, PosicionFutbol posicionFutbol, Club club, Integer goles, Integer asistencias) {
-		super(nombre, dni, precio, anioNacimiento, nacionalidad, altura);
+			Double altura, Club club, Double peso, PosicionFutbol posicionFutbol, Club club2, Integer goles,
+			Integer asistencias) {
+		super(nombre, dni, precio, anioNacimiento, nacionalidad, altura, club);
 		this.peso = peso;
 		this.posicionFutbol = posicionFutbol;
-		this.club = club;
+		club = club2;
 		this.goles = goles;
 		this.asistencias = asistencias;
 	}
-
 
 	public Double getPeso() {
 		return peso;

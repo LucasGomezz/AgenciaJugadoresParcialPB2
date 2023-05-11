@@ -1,27 +1,16 @@
 package ar.edu.unlam.pb2;
 
 public class Nadador extends Jugador {
-	private Double mejorTiempo100mts;
 	private Double mejorTiempo1000mts;
 	private Integer medallasGanadas;
 	private Estilo estiloDestacado;
 
 	public Nadador(String nombre, Integer dni, Double precio, Integer anioNacimiento, Nacionalidad nacionalidad,
-			Double altura, Double mejorTiempo100mts, Double mejorTiempo1000mts, Integer medallasGanadas,
-			Estilo estiloDestacado) {
-		super(nombre, dni, precio, anioNacimiento, nacionalidad, altura);
-		this.mejorTiempo100mts = mejorTiempo100mts;
+			Double altura, Club club, Double mejorTiempo1000mts, Integer medallasGanadas, Estilo estiloDestacado) {
+		super(nombre, dni, precio, anioNacimiento, nacionalidad, altura, club);
 		this.mejorTiempo1000mts = mejorTiempo1000mts;
 		this.medallasGanadas = medallasGanadas;
 		this.estiloDestacado = estiloDestacado;
-	}
-
-	public Double getMejorTiempo100mts() {
-		return mejorTiempo100mts;
-	}
-
-	public void setMejorTiempo100mts(Double mejorTiempo100mts) {
-		this.mejorTiempo100mts = mejorTiempo100mts;
 	}
 
 	public Double getMejorTiempo1000mts() {
