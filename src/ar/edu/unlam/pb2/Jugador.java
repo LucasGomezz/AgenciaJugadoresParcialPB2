@@ -12,13 +12,14 @@ abstract public class Jugador {
 	private Club club;
 
 	public Jugador(String nombre, Integer dni, Double precio, Integer anioNacimiento, Nacionalidad nacionalidad,
-			Double altura) {
+			Double altura, Club club) {
 		this.nombre = nombre;
 		this.dni = dni;
 		this.precio = precio;
 		this.edad = anioNacimiento;
 		this.nacionalidad = nacionalidad;
 		this.altura = altura;
+		this.club = club;
 	}
 
 	public String getNombre() {
@@ -69,6 +70,14 @@ abstract public class Jugador {
 		this.altura = altura;
 	}
 
+	public Club getClub() {
+		return club;
+	}
+
+	public void setClub(Club club) {
+		this.club = club;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(dni);
@@ -85,6 +94,5 @@ abstract public class Jugador {
 		Jugador other = (Jugador) obj;
 		return Objects.equals(dni, other.dni);
 	}
-	
 
 }
