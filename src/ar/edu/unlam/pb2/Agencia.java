@@ -12,6 +12,16 @@ public class Agencia {
 		clubes.add(club);
 	}
 
+	public String historialDeTraspasos() {
+		String historial = "";
+		Integer traspasoN = 1;
+		for (Traspaso traspaso : traspasos) {
+			historial += "Traspaso N° " + traspasoN + " " + traspaso.toString();
+			traspasoN++;
+		}
+		return historial;
+	}
+
 	public Boolean paseBasquetbolista(Club origen, Club destino, Basquetbolista basquetbolista) {
 
 		if (basquetbolista.getPrecio() < 1500) {

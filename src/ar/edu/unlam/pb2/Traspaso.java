@@ -19,6 +19,14 @@ public class Traspaso {
 		this.disciplinas = disciplinas;
 	}
 
+	
+	@Override
+	public String toString() {
+		return "clubOrigen=" + clubOrigen + ", clubDestino=" + clubDestino + ", nombreJugador="
+				+ nombreJugador + ", precio=" + precio + ", disciplinas=" + disciplinas ;
+	}
+
+
 	public String getClubOrigen() {
 		return clubOrigen;
 	}
