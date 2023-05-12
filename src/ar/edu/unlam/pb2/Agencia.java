@@ -12,6 +12,16 @@ public class Agencia {
 		clubes.add(club);
 	}
 
+	public String historialDeTraspasos() {
+		String historial = "";
+		Integer traspasoN = 1;
+		for (Traspaso traspaso : traspasos) {
+			historial += "Traspaso N° " + traspasoN + " " + traspaso.toString();
+			traspasoN++;
+		}
+		return historial;
+	}
+
 	public Boolean paseBasquetbolista(Club origen, Club destino, Basquetbolista basquetbolista) {
 
 		if (basquetbolista.getPrecio() < 1500) {
@@ -181,7 +191,7 @@ public class Agencia {
 		return precioClub;
 	}
 	
-	public String queClubtieneElNadadorMasRapidoEn1000mts () {
+	/*public String queClubtieneElNadadorMasRapidoEn1000mts () {
 		Club clubNadadorMasRapido = null;
 		HashSet<Nadador>nadadores=clubNadadorMasRapido.getNadadores();
 		Nadador nadadorMasRapido=null;
@@ -190,7 +200,7 @@ public class Agencia {
 				if(nadador.getMejorTiempo1000mts()>)
 			}
 		}
-	}
+	}*/
 	
 
 	public HashSet<Club> getClubes() {

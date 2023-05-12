@@ -1,5 +1,6 @@
 package ar.edu.unlam.pb2;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Objects;
@@ -98,6 +99,46 @@ public class Club {
 			return futMasCaro;
 		}
 
+	}
+
+	public PosicionBasquet posicionConMasTriples() {
+		Integer triplesBase = 0;
+		Integer triplesAlero = 0;
+		Integer triplesAlapivot = 0;
+		Integer triplesEscolta = 0;
+		Integer triplesPivot = 0;
+		for (Basquetbolista basquetbolista : basquetbolistas) {
+			switch (basquetbolista.getPosicion()) {
+			case BASE:
+				triplesBase += basquetbolista.getTriples();
+				break;
+			case ALERO:
+				triplesAlero += basquetbolista.getTriples();
+				break;
+			case ALAPIVOT:
+				triplesAlapivot += basquetbolista.getTriples();
+				break;
+			case ESCOLTA:
+				triplesEscolta += basquetbolista.getTriples();
+				break;
+			case PIVOT:
+				triplesPivot += basquetbolista.getTriples();
+				break;
+			default:
+				break;
+			}
+		}
+		if(triplesBase > triplesAlero && triplesBase > triplesAlapivot &&  triplesBase > triplesEscolta && triplesBase > triplesPivot) {
+			return PosicionBasquet.BASE;
+		} else if (triplesAlero > triplesAlapivot && triplesAlero > triplesEscolta && triplesAlero > triplesPivot){
+			return PosicionBasquet.ALERO;
+		} else if (triplesAlapivot > triplesEscolta && triplesAlapivot > triplesPivot) {
+			return PosicionBasquet.ALAPIVOT;
+		} else if (triplesEscolta > triplesPivot) {
+			return PosicionBasquet.ESCOLTA;
+		} else {
+			return PosicionBasquet.PIVOT;
+		}
 	}
 
 	@Override
