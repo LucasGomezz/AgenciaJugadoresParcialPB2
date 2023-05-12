@@ -33,7 +33,7 @@ public class Agencia {
 
 	public Boolean paseBasquetbolista(Club origen, Club destino, Basquetbolista basquetbolista) {
 
-		if (basquetbolista.getPrecio() < 1500 && basquetbolista.getPuntos() > 100) {
+		if (basquetbolista.getPrecio() > 1500.0 && basquetbolista.getPuntos() > 100) {
 			Double seguro = basquetbolista.getPrecio() * 0.1;
 			origen.sacarBasquetbolista(basquetbolista);
 			destino.agregarBasquetbolista(basquetbolista);
