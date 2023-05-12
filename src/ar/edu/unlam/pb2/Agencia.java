@@ -151,6 +151,47 @@ public class Agencia {
 		return "NOMBRE:" + clubValeMas.getNombre() + "/n" + "PRECIO:" + precioTotalMayor;
 
 	}
+	
+	public Double cuantoValeUnClub (Club club) {
+		Double precioClub=0.0;
+		HashSet<Basquetbolista> basquetbolistas = club.getBasquetbolistas();
+		Iterator<Basquetbolista> iterador = basquetbolistas.iterator();
+		while (iterador.hasNext()) {
+			Basquetbolista basquetbolista = iterador.next();
+			precioClub += basquetbolista.getPrecio();
+		}
+		HashSet<Futbolista> futbolistas = club.getFutbolistas();
+		Iterator<Futbolista> iterador2 = futbolistas.iterator();
+		while (iterador2.hasNext()) {
+			Futbolista futbolista = iterador2.next();
+			precioClub += futbolista.getPrecio();
+		}
+		HashSet<Tenista> tenistas = club.getTenistas();
+		Iterator<Tenista> iterador3 = tenistas.iterator();
+		while (iterador3.hasNext()) {
+			Tenista tenista = iterador3.next();
+			precioClub += tenista.getPrecio();
+		}
+		HashSet<Nadador> nadadores = club.getNadadores();
+		Iterator<Nadador> iterador4 = nadadores.iterator();
+		while (iterador4.hasNext()) {
+			Nadador nadador = iterador4.next();
+			precioClub += nadador.getPrecio();
+		}
+		return precioClub;
+	}
+	
+	public String queClubtieneElNadadorMasRapidoEn1000mts () {
+		Club clubNadadorMasRapido = null;
+		HashSet<Nadador>nadadores=clubNadadorMasRapido.getNadadores();
+		Nadador nadadorMasRapido=null;
+		for (Club club : clubes) {
+			for(Nadador nadador : nadadores) {
+				if(nadador.getMejorTiempo1000mts()>)
+			}
+		}
+	}
+	
 
 	public HashSet<Club> getClubes() {
 		return clubes;
