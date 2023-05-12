@@ -24,7 +24,7 @@ public class Agencia {
 
 	public Boolean paseBasquetbolista(Club origen, Club destino, Basquetbolista basquetbolista) {
 
-		if (basquetbolista.getPrecio() < 1500) {
+		if (basquetbolista.getPrecio() < 1500 && basquetbolista.getPuntos() > 100) {
 			Double seguro = basquetbolista.getPrecio() * 0.1;
 			origen.sacarBasquetbolista(basquetbolista);
 			destino.agregarBasquetbolista(basquetbolista);
@@ -213,7 +213,7 @@ public class Agencia {
 		return nadadorMasRapido.getClub().getNombre();
 	}
 
-	public String queClubtieneElJugadorConMasTriples() {
+	public String queClubtieneElBasquetbolistaConMasTriples() {
 		Basquetbolista basquetbolistaConMasTriples = null;
 		for (Club club : clubes) {
 			HashSet<Basquetbolista> basquetbolistas = club.getBasquetbolistas();

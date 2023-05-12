@@ -24,7 +24,7 @@ public class Club {
 		this.nadadores = nadadores;
 	}
 
-	public Double edadPromedioDelClub() {
+	public Double edadPromedioDeLosJugadoresDelClub() {
 		Integer edadTotal = 0;
 		Iterator<Basquetbolista> iterador = basquetbolistas.iterator();
 		while (iterador.hasNext()) {
