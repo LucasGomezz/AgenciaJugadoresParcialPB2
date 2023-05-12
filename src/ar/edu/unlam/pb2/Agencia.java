@@ -161,9 +161,9 @@ public class Agencia {
 		return "NOMBRE:" + clubValeMas.getNombre() + "/n" + "PRECIO:" + precioTotalMayor;
 
 	}
-	
-	public Double cuantoValeUnClub (Club club) {
-		Double precioClub=0.0;
+
+	public Double cuantoValeUnClub(Club club) {
+		Double precioClub = 0.0;
 		HashSet<Basquetbolista> basquetbolistas = club.getBasquetbolistas();
 		Iterator<Basquetbolista> iterador = basquetbolistas.iterator();
 		while (iterador.hasNext()) {
@@ -190,18 +190,29 @@ public class Agencia {
 		}
 		return precioClub;
 	}
-	
-	/*public String queClubtieneElNadadorMasRapidoEn1000mts () {
-		Club clubNadadorMasRapido = null;
-		HashSet<Nadador>nadadores=clubNadadorMasRapido.getNadadores();
-		Nadador nadadorMasRapido=null;
+
+	public String queClubtieneElNadadorMasRapidoEn1000mts() {
+		Nadador nadadorMasRapido = null;
 		for (Club club : clubes) {
-			for(Nadador nadador : nadadores) {
-				if(nadador.getMejorTiempo1000mts()>)
+			HashSet<Nadador> nadadores = club.getNadadores();
+			for (Nadador nadador : nadadores) {
+				if (nadadorMasRapido == null ||nadador.getMejorTiempo1000mts() > nadadorMasRapido.getMejorTiempo1000mts()) {
+					nadadorMasRapido = nadador;
+				}
 			}
-		}
-	}*/
-	
+		}return nadadorMasRapido.getClub().toString();
+	}
+	public String queClubtieneElJugadorConMasTriples() {
+		Basquetbolista basquetbolistaConMasTriples = null;
+		for (Club club : clubes) {
+			HashSet<Basquetbolista> basquetbolistas = club.getBasquetbolistas();
+			for (Basquetbolista basquetbolista : basquetbolistas) {
+				if (basquetbolistaConMasTriples == null ||basquetbolista.getTriples() > basquetbolistaConMasTriples.getTriples()) {
+					basquetbolistaConMasTriples = basquetbolista;
+				}
+			}
+		}return basquetbolistaConMasTriples.getClub().toString();
+	}
 
 	public HashSet<Club> getClubes() {
 		return clubes;
