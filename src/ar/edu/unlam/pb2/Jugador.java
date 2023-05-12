@@ -11,12 +11,12 @@ abstract public class Jugador {
 	private Double altura;
 	private Club club;
 
-	public Jugador(String nombre, Integer dni, Double precio, Integer anioNacimiento, Nacionalidad nacionalidad,
+	public Jugador(String nombre, Integer dni, Double precio, Integer edad, Nacionalidad nacionalidad,
 			Double altura, Club club) {
 		this.nombre = nombre;
 		this.dni = dni;
 		this.precio = precio;
-		this.edad = anioNacimiento;
+		this.edad = edad;
 		this.nacionalidad = nacionalidad;
 		this.altura = altura;
 		this.club = club;
@@ -50,8 +50,8 @@ abstract public class Jugador {
 		return edad;
 	}
 
-	public void setEdad(Integer anioNacimiento) {
-		this.edad = anioNacimiento;
+	public void setEdad(Integer edad) {
+		this.edad = edad;
 	}
 
 	public Nacionalidad getNacionalidad() {

@@ -5,9 +5,9 @@ public class Nadador extends Jugador {
 	private Integer medallasGanadas;
 	private Estilo estiloDestacado;
 
-	public Nadador(String nombre, Integer dni, Double precio, Integer anioNacimiento, Nacionalidad nacionalidad,
+	public Nadador(String nombre, Integer dni, Double precio, Integer edad, Nacionalidad nacionalidad,
 			Double altura, Club club, Double mejorTiempo1000mts, Integer medallasGanadas, Estilo estiloDestacado) {
-		super(nombre, dni, precio, anioNacimiento, nacionalidad, altura, club);
+		super(nombre, dni, precio, edad, nacionalidad, altura, club);
 		this.mejorTiempo1000mts = mejorTiempo1000mts;
 		this.medallasGanadas = medallasGanadas;
 		this.estiloDestacado = estiloDestacado;

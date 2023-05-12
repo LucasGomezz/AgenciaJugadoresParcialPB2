@@ -8,20 +8,20 @@ import java.util.Objects;
 public class Club {
 	private String nombre;
 	private String localidad;
-	private HashSet<Basquetbolista> basquetbolistas = new HashSet<>();
-	private HashSet<Futbolista> futbolistas = new HashSet<>();
-	private HashSet<Tenista> tenistas = new HashSet<>();
-	private HashSet<Nadador> nadadores = new HashSet<>();
+	private HashSet<Basquetbolista> basquetbolistas;
+	private HashSet<Futbolista> futbolistas;
+	private HashSet<Tenista> tenistas;
+	private HashSet<Nadador> nadadores;
+	
 
-	public Club(String nombre, String localidad, HashSet<Basquetbolista> basquetbolistas,
-			HashSet<Futbolista> futbolistas, HashSet<Tenista> tenistas, HashSet<Nadador> nadadores) {
+	public Club(String nombre, String localidad) {
 		super();
 		this.nombre = nombre;
 		this.localidad = localidad;
-		this.basquetbolistas = basquetbolistas;
-		this.futbolistas = futbolistas;
-		this.tenistas = tenistas;
-		this.nadadores = nadadores;
+		this.basquetbolistas = new HashSet<>();
+		this.futbolistas = new HashSet<>();
+		this.tenistas = new HashSet<>();
+		this.nadadores = new HashSet<>();
 	}
 
 	public Double edadPromedioDeLosJugadoresDelClub() {

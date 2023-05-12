@@ -5,8 +5,17 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 public class Agencia {
+	private String nombre;
 	private HashSet<Club> clubes = new HashSet<>();
 	private ArrayList<Traspaso> traspasos = new ArrayList<>();
+	
+	
+
+	public Agencia(String nombre) {
+		this.nombre = nombre;
+		this.clubes = new HashSet<>();
+		this.traspasos = new ArrayList<>();
+	}
 
 	public void agregarClub(Club club) {
 		clubes.add(club);
@@ -30,7 +39,8 @@ public class Agencia {
 			destino.agregarBasquetbolista(basquetbolista);
 			basquetbolista.setClub(destino);
 			Double precioTotal = basquetbolista.getPrecio() + seguro;
-			Traspaso traspaso = new Pase(origen.getNombre(), destino.getNombre(), basquetbolista.getNombre(), Disciplina.BASQUET, precioTotal);
+			Traspaso traspaso = new Pase(origen.getNombre(), destino.getNombre(), basquetbolista.getNombre(),
+					Disciplina.BASQUET, precioTotal);
 			traspasos.add(traspaso);
 			return true;
 		} else {
@@ -46,7 +56,8 @@ public class Agencia {
 			destino.agregarTenista(tenista);
 			tenista.setClub(destino);
 			Double precioTotal = tenista.getPrecio() + viatico;
-			Traspaso traspaso = new Pase(origen.getNombre(), destino.getNombre(), tenista.getNombre(), Disciplina.TENIS, precioTotal);
+			Traspaso traspaso = new Pase(origen.getNombre(), destino.getNombre(), tenista.getNombre(), Disciplina.TENIS,
+					precioTotal);
 			traspasos.add(traspaso);
 			return true;
 		} else {
@@ -64,7 +75,8 @@ public class Agencia {
 			destino.agregarFutbolista(futbolista);
 			futbolista.setClub(destino);
 			Double precioTotal = futbolista.getPrecio() + seguro;
-			Traspaso traspaso = new  Pase(origen.getNombre(), destino.getNombre(), futbolista.getNombre(), Disciplina.FUTBOL, precioTotal);
+			Traspaso traspaso = new Pase(origen.getNombre(), destino.getNombre(), futbolista.getNombre(),
+					Disciplina.FUTBOL, precioTotal);
 			traspasos.add(traspaso);
 			return true;
 		}
@@ -77,7 +89,8 @@ public class Agencia {
 			destino.agregarNadador(nadador);
 			nadador.setClub(destino);
 			Double precioTotal = nadador.getPrecio() + bono;
-			Traspaso traspaso = new  Pase(origen.getNombre(), destino.getNombre(), nadador.getNombre(), Disciplina.NATACION, precioTotal);
+			Traspaso traspaso = new Pase(origen.getNombre(), destino.getNombre(), nadador.getNombre(),
+					Disciplina.NATACION, precioTotal);
 			traspasos.add(traspaso);
 			return true;
 		}
@@ -93,7 +106,8 @@ public class Agencia {
 		destino.agregarBasquetbolista(basquetbolistaDestino);
 		basquetbolistaDestino.setClub(origen);
 		basquetbolistaOrigen.setClub(destino);
-		Traspaso traspaso = new Intercambio(origen.getNombre(), destino.getNombre(), basquetbolistaOrigen.getNombre(), Disciplina.BASQUET, basquetbolistaDestino.getNombre());
+		Traspaso traspaso = new Intercambio(origen.getNombre(), destino.getNombre(), basquetbolistaOrigen.getNombre(),
+				Disciplina.BASQUET, basquetbolistaDestino.getNombre());
 		traspasos.add(traspaso);
 	}
 
@@ -105,7 +119,8 @@ public class Agencia {
 		destino.agregarFutbolista(futbolistaOrigen);
 		futbolistaOrigen.setClub(destino);
 		futbolistaDestino.setClub(origen);
-		Traspaso traspaso = new Intercambio(origen.getNombre(), destino.getNombre(), futbolistaOrigen.getNombre(), Disciplina.FUTBOL, futbolistaDestino.getNombre());
+		Traspaso traspaso = new Intercambio(origen.getNombre(), destino.getNombre(), futbolistaOrigen.getNombre(),
+				Disciplina.FUTBOL, futbolistaDestino.getNombre());
 		traspasos.add(traspaso);
 	}
 
@@ -116,7 +131,8 @@ public class Agencia {
 		destino.agregarTenista(tenistaOrigen);
 		tenistaOrigen.setClub(destino);
 		tenistaDestino.setClub(origen);
-		Traspaso traspaso = new Intercambio(origen.getNombre(), destino.getNombre(), tenistaOrigen.getNombre(), Disciplina.TENIS, tenistaDestino.getNombre());
+		Traspaso traspaso = new Intercambio(origen.getNombre(), destino.getNombre(), tenistaOrigen.getNombre(),
+				Disciplina.TENIS, tenistaDestino.getNombre());
 		traspasos.add(traspaso);
 	}
 
@@ -127,7 +143,8 @@ public class Agencia {
 		destino.agregarNadador(nadadorOrigen);
 		nadadorOrigen.setClub(destino);
 		nadadorDestino.setClub(origen);
-		Traspaso traspaso = new Intercambio(origen.getNombre(), destino.getNombre(), nadadorOrigen.getNombre(), Disciplina.NATACION, nadadorDestino.getNombre());
+		Traspaso traspaso = new Intercambio(origen.getNombre(), destino.getNombre(), nadadorOrigen.getNombre(),
+				Disciplina.NATACION, nadadorDestino.getNombre());
 		traspasos.add(traspaso);
 	}
 
