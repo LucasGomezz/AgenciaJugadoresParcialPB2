@@ -29,7 +29,7 @@ public class pruebaAgencia {
 
 	@Test
 	public void queNoSePuedaTenerDosJugadoresConElMismoDni() {
-
+		System.out.println("hola");
 	}
 	
 	@Test

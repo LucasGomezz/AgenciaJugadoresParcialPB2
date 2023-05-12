@@ -24,7 +24,7 @@ public class Club {
 		this.nadadores = nadadores;
 	}
 
-	public Double edadPromedio() {
+	public Double edadPromedioDelClub() {
 		Integer edadTotal = 0;
 		Iterator<Basquetbolista> iterador = basquetbolistas.iterator();
 		while (iterador.hasNext()) {
@@ -62,7 +62,34 @@ public class Club {
 		nadadores.add(nadador);
 	}
 
-	public Jugador jugadorMasCaro() {
+	public String futboilistaConMejoresEstadisticas() {
+		Futbolista mejorFutbolista = null;
+		Integer mejorEstadistica = 0;
+		for (Futbolista futbolista : futbolistas) {
+			Integer sumaEstadisticas = 0;
+			sumaEstadisticas = futbolista.getAsistencias() + futbolista.getGoles();
+			if (sumaEstadisticas > mejorEstadistica) {
+				mejorEstadistica = sumaEstadisticas;
+				mejorFutbolista = futbolista;
+			}
+
+		}
+		return mejorFutbolista.getNombre() + " con la suma de " + mejorEstadistica + " goles y asistencias.";
+	}
+
+	public String tenistaConMejorTopMundialActual() {
+		Tenista mejorConRanking = null;
+		for (Tenista tenista : tenistas) {
+
+			if (mejorConRanking == null
+					|| tenista.getRankinMundialActual() < mejorConRanking.getRankinMundialActual()) {
+				mejorConRanking = tenista;
+			}
+		}
+		return mejorConRanking.getNombre() + " se encuentra en el top " + mejorConRanking.getRankinMundialActual();
+	}
+
+	public Jugador jugadorMasCaroDelClub() {
 		Basquetbolista basMasCaro = null;
 		Tenista tenMasCaro = null;
 		Nadador nadMasCaro = null;
@@ -128,9 +155,10 @@ public class Club {
 				break;
 			}
 		}
-		if(triplesBase > triplesAlero && triplesBase > triplesAlapivot &&  triplesBase > triplesEscolta && triplesBase > triplesPivot) {
+		if (triplesBase > triplesAlero && triplesBase > triplesAlapivot && triplesBase > triplesEscolta
+				&& triplesBase > triplesPivot) {
 			return PosicionBasquet.BASE;
-		} else if (triplesAlero > triplesAlapivot && triplesAlero > triplesEscolta && triplesAlero > triplesPivot){
+		} else if (triplesAlero > triplesAlapivot && triplesAlero > triplesEscolta && triplesAlero > triplesPivot) {
 			return PosicionBasquet.ALERO;
 		} else if (triplesAlapivot > triplesEscolta && triplesAlapivot > triplesPivot) {
 			return PosicionBasquet.ALAPIVOT;

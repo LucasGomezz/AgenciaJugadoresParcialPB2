@@ -196,22 +196,27 @@ public class Agencia {
 		for (Club club : clubes) {
 			HashSet<Nadador> nadadores = club.getNadadores();
 			for (Nadador nadador : nadadores) {
-				if (nadadorMasRapido == null ||nadador.getMejorTiempo1000mts() > nadadorMasRapido.getMejorTiempo1000mts()) {
+				if (nadadorMasRapido == null
+						|| nadador.getMejorTiempo1000mts() > nadadorMasRapido.getMejorTiempo1000mts()) {
 					nadadorMasRapido = nadador;
 				}
 			}
-		}return nadadorMasRapido.getClub().toString();
+		}
+		return nadadorMasRapido.getClub().getNombre();
 	}
+
 	public String queClubtieneElJugadorConMasTriples() {
 		Basquetbolista basquetbolistaConMasTriples = null;
 		for (Club club : clubes) {
 			HashSet<Basquetbolista> basquetbolistas = club.getBasquetbolistas();
 			for (Basquetbolista basquetbolista : basquetbolistas) {
-				if (basquetbolistaConMasTriples == null ||basquetbolista.getTriples() > basquetbolistaConMasTriples.getTriples()) {
+				if (basquetbolistaConMasTriples == null
+						|| basquetbolista.getTriples() > basquetbolistaConMasTriples.getTriples()) {
 					basquetbolistaConMasTriples = basquetbolista;
 				}
 			}
-		}return basquetbolistaConMasTriples.getClub().toString();
+		}
+		return basquetbolistaConMasTriples.getClub().getNombre();
 	}
 
 	public HashSet<Club> getClubes() {
