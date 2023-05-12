@@ -5,9 +5,9 @@ public class Tenista extends Jugador {
 	private Integer rankinMundialActual;
 	private Integer mejorRankingMundial;
 
-	public Tenista(String nombre, Integer dni, Double precio, Integer anioNacimiento, Nacionalidad nacionalidad,
+	public Tenista(String nombre, Integer dni, Double precio, Integer edad, Nacionalidad nacionalidad,
 			Double altura, Club club, Double peso, Integer rankinMundialActual, Integer mejorRankingMundial) {
-		super(nombre, dni, precio, anioNacimiento, nacionalidad, altura, club);
+		super(nombre, dni, precio, edad, nacionalidad, altura, club);
 		this.peso = peso;
 		this.rankinMundialActual = rankinMundialActual;
 		this.mejorRankingMundial = mejorRankingMundial;
