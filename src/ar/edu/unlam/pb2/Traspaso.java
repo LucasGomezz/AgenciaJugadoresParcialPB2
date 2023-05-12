@@ -1,31 +1,20 @@
 package ar.edu.unlam.pb2;
 
-public class Traspaso {
+public abstract class Traspaso {
 	private String clubOrigen;
 	private String clubDestino;
 	private String nombreJugador;
-	private Double precio;
 	private Disciplina disciplinas;
 
-
-
-	public Traspaso(String clubOrigen, String clubDestino, String nombreJugador, Double precio,
-			Disciplina disciplinas) {
+	public Traspaso(String clubOrigen, String clubDestino, String nombreJugador, Disciplina disciplinas) {
 		super();
 		this.clubOrigen = clubOrigen;
 		this.clubDestino = clubDestino;
 		this.nombreJugador = nombreJugador;
-		this.precio = precio;
 		this.disciplinas = disciplinas;
 	}
-
 	
-	@Override
-	public String toString() {
-		return "clubOrigen=" + clubOrigen + ", clubDestino=" + clubDestino + ", nombreJugador="
-				+ nombreJugador + ", precio=" + precio + ", disciplinas=" + disciplinas ;
-	}
-
+	public abstract String toString();
 
 	public String getClubOrigen() {
 		return clubOrigen;
@@ -49,14 +38,6 @@ public class Traspaso {
 
 	public void setNombreJugador(String nombreJugador) {
 		this.nombreJugador = nombreJugador;
-	}
-
-	public Double getPrecio() {
-		return precio;
-	}
-
-	public void setPrecio(Double precio) {
-		this.precio = precio;
 	}
 
 	public Disciplina getDisciplinas() {

@@ -30,8 +30,8 @@ public class Agencia {
 			destino.agregarBasquetbolista(basquetbolista);
 			basquetbolista.setClub(destino);
 			Double precioTotal = basquetbolista.getPrecio() + seguro;
-			Traspaso traspaso = new Traspaso(origen.getNombre(), destino.getNombre(), basquetbolista.getNombre(),
-					precioTotal, Disciplina.BASQUET);
+			Traspaso traspaso = new Pase(origen.getNombre(), destino.getNombre(), basquetbolista.getNombre(), Disciplina.BASQUET, precioTotal);
+			traspasos.add(traspaso);
 			return true;
 		} else {
 			return false;
@@ -46,8 +46,8 @@ public class Agencia {
 			destino.agregarTenista(tenista);
 			tenista.setClub(destino);
 			Double precioTotal = tenista.getPrecio() + viatico;
-			Traspaso traspaso = new Traspaso(origen.getNombre(), destino.getNombre(), tenista.getNombre(), precioTotal,
-					Disciplina.TENIS);
+			Traspaso traspaso = new Pase(origen.getNombre(), destino.getNombre(), tenista.getNombre(), Disciplina.TENIS, precioTotal);
+			traspasos.add(traspaso);
 			return true;
 		} else {
 			return false;
@@ -64,8 +64,8 @@ public class Agencia {
 			destino.agregarFutbolista(futbolista);
 			futbolista.setClub(destino);
 			Double precioTotal = futbolista.getPrecio() + seguro;
-			Traspaso traspaso = new Traspaso(origen.getNombre(), destino.getNombre(), futbolista.getNombre(),
-					precioTotal, Disciplina.FUTBOL);
+			Traspaso traspaso = new  Pase(origen.getNombre(), destino.getNombre(), futbolista.getNombre(), Disciplina.FUTBOL, precioTotal);
+			traspasos.add(traspaso);
 			return true;
 		}
 	}
@@ -77,8 +77,8 @@ public class Agencia {
 			destino.agregarNadador(nadador);
 			nadador.setClub(destino);
 			Double precioTotal = nadador.getPrecio() + bono;
-			Traspaso traspaso = new Traspaso(origen.getNombre(), destino.getNombre(), nadador.getNombre(), precioTotal,
-					Disciplina.NATACION);
+			Traspaso traspaso = new  Pase(origen.getNombre(), destino.getNombre(), nadador.getNombre(), Disciplina.NATACION, precioTotal);
+			traspasos.add(traspaso);
 			return true;
 		}
 		return false;
@@ -93,6 +93,8 @@ public class Agencia {
 		destino.agregarBasquetbolista(basquetbolistaDestino);
 		basquetbolistaDestino.setClub(origen);
 		basquetbolistaOrigen.setClub(destino);
+		Traspaso traspaso = new Intercambio(origen.getNombre(), destino.getNombre(), basquetbolistaOrigen.getNombre(), Disciplina.BASQUET, basquetbolistaDestino.getNombre());
+		traspasos.add(traspaso);
 	}
 
 	public void cambiarFutbolistaPorOtro(Club origen, Futbolista futbolistaOrigen, Club destino,
@@ -103,6 +105,8 @@ public class Agencia {
 		destino.agregarFutbolista(futbolistaOrigen);
 		futbolistaOrigen.setClub(destino);
 		futbolistaDestino.setClub(origen);
+		Traspaso traspaso = new Intercambio(origen.getNombre(), destino.getNombre(), futbolistaOrigen.getNombre(), Disciplina.FUTBOL, futbolistaDestino.getNombre());
+		traspasos.add(traspaso);
 	}
 
 	public void cambiarTenistaPorOtro(Club origen, Tenista tenistaOrigen, Club destino, Tenista tenistaDestino) {
@@ -112,6 +116,8 @@ public class Agencia {
 		destino.agregarTenista(tenistaOrigen);
 		tenistaOrigen.setClub(destino);
 		tenistaDestino.setClub(origen);
+		Traspaso traspaso = new Intercambio(origen.getNombre(), destino.getNombre(), tenistaOrigen.getNombre(), Disciplina.TENIS, tenistaDestino.getNombre());
+		traspasos.add(traspaso);
 	}
 
 	public void cambiarNadadorPorOtro(Club origen, Nadador nadadorOrigen, Club destino, Nadador nadadorDestino) {
@@ -121,6 +127,8 @@ public class Agencia {
 		destino.agregarNadador(nadadorOrigen);
 		nadadorOrigen.setClub(destino);
 		nadadorDestino.setClub(origen);
+		Traspaso traspaso = new Intercambio(origen.getNombre(), destino.getNombre(), nadadorOrigen.getNombre(), Disciplina.NATACION, nadadorDestino.getNombre());
+		traspasos.add(traspaso);
 	}
 
 	public String queClubValeMas() {
