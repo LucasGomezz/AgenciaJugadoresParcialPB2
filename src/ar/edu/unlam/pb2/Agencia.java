@@ -254,4 +254,12 @@ public class Agencia {
 	public void setClubes(HashSet<Club> clubes) {
 		this.clubes = clubes;
 	}
+
+	public ArrayList<Traspaso> getTraspasos() {
+		return traspasos;
+	}
+
+	public void setTraspasos(ArrayList<Traspaso> traspasos) {
+		this.traspasos = traspasos;
+	}
 }
