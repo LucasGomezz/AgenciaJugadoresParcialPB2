@@ -713,7 +713,6 @@ public class pruebaAgencia {
 		Double promedioEsperado=25.5;
 		
 		assertNotNull(padua.edadPromedioDeLosJugadoresDelClub());
-		System.out.println(padua.edadPromedioDeLosJugadoresDelClub());
 		assertEquals(promedioEsperado, padua.edadPromedioDeLosJugadoresDelClub());
 	}
 	
@@ -761,4 +760,80 @@ public class pruebaAgencia {
 		assertNotNull(padua.posicionConMasTriples());
 		assertEquals(PosicionBasquet.ALERO, padua.posicionConMasTriples());
 	}
+	
+	@Test
+	public void queUnMismoDniPuedaHacerDosDisciplinas() {
+		String nombreAgencia = "Lion Agency";
+		Agencia agencia = new Agencia(nombreAgencia);
+		String nombreClub1 = "C.A.S.A Padua";
+		String localidad1 = "San Antonio De Padua";
+		Club padua = new Club(nombreClub1, localidad1);
+
+
+		String nombreJugador1 = "Pablo";
+		Integer dni1 = 24000908;
+		Double precio1 = 400.0;
+		Integer edad1 = 24;
+		Double altura1 = 1.70;
+		Integer goles1 = 10;
+		Integer asistencias1 = 20;
+		Nacionalidad nacionalidad1 = Nacionalidad.ARGENTINA;
+		PosicionFutbol posicion1 = PosicionFutbol.MEDIOCAMPISTA;
+		Futbolista futbolista1 = new Futbolista(nombreJugador1, dni1, precio1, edad1, nacionalidad1, altura1, posicion1,
+				goles1, asistencias1);
+		
+		Integer triples1 = 50;
+		Integer puntos1 = 300;
+		PosicionBasquet posicion2 = PosicionBasquet.ESCOLTA;
+		Basquetbolista basquetbolista1 = new Basquetbolista(nombreJugador1, dni1, precio1, edad1, nacionalidad1,
+				altura1, posicion2, triples1, puntos1);
+
+		padua.agregarFutbolista(futbolista1);
+		agencia.asignarClubAJugador(padua, futbolista1);
+		padua.agregarBasquetbolista(basquetbolista1);
+		agencia.asignarClubAJugador(padua, basquetbolista1);
+		assertNotNull(padua.getFutbolistas());
+		assertNotNull(padua.getBasquetbolistas());
+
+	}
+	
+	@Test
+	public void queUnMismoDniNoPuedaHacerLaMismaDisciplina() {
+		String nombreAgencia = "Lion Agency";
+		Agencia agencia = new Agencia(nombreAgencia);
+		String nombreClub1 = "C.A.S.A Padua";
+		String localidad1 = "San Antonio De Padua";
+		Club padua = new Club(nombreClub1, localidad1);
+
+
+		String nombreJugador1 = "Pablo";
+		Integer dni1 = 24000908;
+		Double precio1 = 400.0;
+		Integer edad1 = 24;
+		Double altura1 = 1.70;
+		Integer goles1 = 10;
+		Integer asistencias1 = 20;
+		Nacionalidad nacionalidad1 = Nacionalidad.ARGENTINA;
+		PosicionFutbol posicion1 = PosicionFutbol.MEDIOCAMPISTA;
+		Futbolista futbolista1 = new Futbolista(nombreJugador1, dni1, precio1, edad1, nacionalidad1, altura1, posicion1,
+				goles1, asistencias1);
+		
+		String nombreJugador2 = "Pablo";
+		Integer dni2 = 24000908;
+		Double precio2 = 400.0;
+		Integer edad2 = 24;
+		Double altura2 = 1.70;
+		Integer goles2 = 10;
+		Integer asistencias2 = 20;
+		Nacionalidad nacionalidad2 = Nacionalidad.ARGENTINA;
+		PosicionFutbol posicion2 = PosicionFutbol.MEDIOCAMPISTA;
+		Futbolista futbolista2 = new Futbolista(nombreJugador2, dni2, precio2, edad2, nacionalidad2, altura2, posicion2,
+				goles2, asistencias2);
+
+		padua.agregarFutbolista(futbolista1);
+		padua.agregarFutbolista(futbolista2);
+		assertNotEquals(2,padua.getFutbolistas().size());
+		assertEquals(1,padua.getFutbolistas().size());
+	}
+	
 }

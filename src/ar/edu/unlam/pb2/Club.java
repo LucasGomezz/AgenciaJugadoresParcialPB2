@@ -11,7 +11,6 @@ public class Club {
 	private HashSet<Futbolista> futbolistas;
 	private HashSet<Tenista> tenistas;
 	private HashSet<Nadador> nadadores;
-	
 
 	public Club(String nombre, String localidad) {
 		this.nombre = nombre;
@@ -30,23 +29,23 @@ public class Club {
 			edadTotal += basquetbolista.getEdad();
 		}
 		Iterator<Futbolista> iterador2 = futbolistas.iterator();
-		while (iterador.hasNext()) {
+		while (iterador2.hasNext()) {
 			Futbolista futbolista = iterador2.next();
 			edadTotal += futbolista.getEdad();
 		}
 		Iterator<Tenista> iterador3 = tenistas.iterator();
-		while (iterador.hasNext()) {
+		while (iterador3.hasNext()) {
 			Tenista tenista = iterador3.next();
 			edadTotal += tenista.getEdad();
 		}
 		Integer cantidad = basquetbolistas.size() + futbolistas.size() + tenistas.size() + nadadores.size();
-		Double edadPromedio = (double) (edadTotal / cantidad);
+		Double edadPromedio = (double) (edadTotal) / (double) (cantidad);
 		return edadPromedio;
 	}
 
 	public void agregarTenista(Tenista tenista) {
 		tenistas.add(tenista);
-		
+
 	}
 
 	public void agregarBasquetbolista(Basquetbolista basquetbolista) {
