@@ -7,8 +7,8 @@ public class Basquetbolista extends Jugador {
 	private Integer puntos;
 
 	public Basquetbolista(String nombre, Integer dni, Double precio, Integer edad, Nacionalidad nacionalidad,
-			Double altura, Club club, PosicionBasquet posicionBasquet, Integer triples, Integer puntos) {
-		super(nombre, dni, precio, edad, nacionalidad, altura, club);
+			Double altura, PosicionBasquet posicionBasquet, Integer triples, Integer puntos) {
+		super(nombre, dni, precio, edad, nacionalidad, altura);
 		this.posicionBasquet = posicionBasquet;
 		this.triples = triples;
 		this.puntos = puntos;

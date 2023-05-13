@@ -9,17 +9,16 @@ abstract public class Jugador {
 	private Integer edad;
 	private Nacionalidad nacionalidad;
 	private Double altura;
-	private Club club;
+	private Club club = null;
 
 	public Jugador(String nombre, Integer dni, Double precio, Integer edad, Nacionalidad nacionalidad,
-			Double altura, Club club) {
+			Double altura) {
 		this.nombre = nombre;
 		this.dni = dni;
 		this.precio = precio;
 		this.edad = edad;
 		this.nacionalidad = nacionalidad;
 		this.altura = altura;
-		this.club = club;
 	}
 
 	public String getNombre() {

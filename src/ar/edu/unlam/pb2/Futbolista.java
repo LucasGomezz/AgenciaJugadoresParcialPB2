@@ -6,8 +6,8 @@ public class Futbolista extends Jugador {
 	private Integer asistencias;
 
 	public Futbolista(String nombre, Integer dni, Double precio, Integer edad, Nacionalidad nacionalidad,
-			Double altura, Club club, PosicionFutbol posicionFutbol, Integer goles, Integer asistencias) {
-		super(nombre, dni, precio, edad, nacionalidad, altura, club);
+			Double altura, PosicionFutbol posicionFutbol, Integer goles, Integer asistencias) {
+		super(nombre, dni, precio, edad, nacionalidad, altura);
 		this.posicionFutbol = posicionFutbol;
 		this.goles = goles;
 		this.asistencias = asistencias;

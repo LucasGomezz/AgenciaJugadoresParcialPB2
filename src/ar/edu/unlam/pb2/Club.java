@@ -1,6 +1,5 @@
 package ar.edu.unlam.pb2;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Objects;
@@ -15,7 +14,6 @@ public class Club {
 	
 
 	public Club(String nombre, String localidad) {
-		super();
 		this.nombre = nombre;
 		this.localidad = localidad;
 		this.basquetbolistas = new HashSet<>();
@@ -48,6 +46,7 @@ public class Club {
 
 	public void agregarTenista(Tenista tenista) {
 		tenistas.add(tenista);
+		
 	}
 
 	public void agregarBasquetbolista(Basquetbolista basquetbolista) {

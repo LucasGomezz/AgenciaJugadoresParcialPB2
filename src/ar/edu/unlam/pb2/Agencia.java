@@ -243,6 +243,9 @@ public class Agencia {
 		}
 		return basquetbolistaConMasTriples.getClub().getNombre();
 	}
+	public void asignarClubAJugador(Club club, Jugador jugador) {
+		jugador.setClub(club);
+	}
 
 	public HashSet<Club> getClubes() {
 		return clubes;

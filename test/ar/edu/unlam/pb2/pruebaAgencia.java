@@ -8,7 +8,8 @@ public class pruebaAgencia {
 
 	@Test
 	public void queSePuedaCrearClubesYJugadores() {
-
+		String nombreAgencia = "Lion Agency";
+		Agencia agencia = new Agencia(nombreAgencia);
 		String nombreClub1 = "C.A.S.A Padua";
 		String localidad1 = "San Antonio De Padua";
 		Club padua = new Club(nombreClub1, localidad1);
@@ -26,8 +27,7 @@ public class pruebaAgencia {
 		Integer asistencias1 = 20;
 		Nacionalidad nacionalidad1 = Nacionalidad.ARGENTINA;
 		PosicionFutbol posicion1 = PosicionFutbol.MEDIOCAMPISTA;
-		Futbolista futbolista1 = new Futbolista(nombreJugador1, dni1, precio1, edad1, nacionalidad1, altura1, castelar,
-				posicion1, goles1, asistencias1);
+		Futbolista futbolista1 = new Futbolista(nombreJugador1, dni1, precio1, edad1, nacionalidad1, altura1, posicion1, goles1, asistencias1);
 
 		String nombreJugador2 = "Lucas";
 		Integer dni2 = 43123321;
@@ -39,10 +39,12 @@ public class pruebaAgencia {
 		Nacionalidad nacionalidad2 = Nacionalidad.PARAGUAY;
 		PosicionBasquet posicion2 = PosicionBasquet.ESCOLTA;
 		Basquetbolista basquetbolista1 = new Basquetbolista(nombreJugador2, dni2, precio2, edad2, nacionalidad2,
-				altura2, castelar, posicion2, triples2, puntos2);
+				altura2, posicion2, triples2, puntos2);
 
 		padua.agregarFutbolista(futbolista1);
+		agencia.asignarClubAJugador(padua, futbolista1);
 		padua.agregarBasquetbolista(basquetbolista1);
+		agencia.asignarClubAJugador(padua, basquetbolista1);
 		assertNotNull(padua.getFutbolistas());
 		assertNotNull(padua.getBasquetbolistas());
 
@@ -69,12 +71,12 @@ public class pruebaAgencia {
 		Integer asistencias1 = 20;
 		Nacionalidad nacionalidad1 = Nacionalidad.ARGENTINA;
 		PosicionFutbol posicion1 = PosicionFutbol.MEDIOCAMPISTA;
-		Futbolista futbolista1 = new Futbolista(nombreJugador1, dni1, precio1, edad1, nacionalidad1, altura1, castelar,
-				posicion1, goles1, asistencias1);
+		Futbolista futbolista1 = new Futbolista(nombreJugador1, dni1, precio1, edad1, nacionalidad1, altura1, posicion1, goles1, asistencias1);
 
 		agencia.agregarClub(castelar);
 		agencia.agregarClub(padua);
 		castelar.agregarFutbolista(futbolista1);
+		agencia.asignarClubAJugador(castelar, futbolista1);
 
 		agencia.paseFutbolista(padua, castelar, futbolista1);
 
@@ -104,12 +106,12 @@ public class pruebaAgencia {
 		Integer asistencias1 = 20;
 		Nacionalidad nacionalidad1 = Nacionalidad.ARGENTINA;
 		PosicionFutbol posicion1 = PosicionFutbol.MEDIOCAMPISTA;
-		Futbolista futbolista1 = new Futbolista(nombreJugador1, dni1, precio1, edad1, nacionalidad1, altura1, castelar,
-				posicion1, goles1, asistencias1);
+		Futbolista futbolista1 = new Futbolista(nombreJugador1, dni1, precio1, edad1, nacionalidad1, altura1, posicion1, goles1, asistencias1);
 
 		agencia.agregarClub(castelar);
 		agencia.agregarClub(padua);
 		castelar.agregarFutbolista(futbolista1);
+		agencia.asignarClubAJugador(castelar, futbolista1);
 		agencia.paseFutbolista(castelar, padua, futbolista1);
 
 		assertTrue(castelar.getFutbolistas().contains(futbolista1));
@@ -139,12 +141,12 @@ public class pruebaAgencia {
 		Integer medallasGanadas3 = 4;
 		Estilo estiloDestacado3 = Estilo.ESPALDA;
 
-		Nadador nadador1 = new Nadador(nombreJugador3, dni3, precio3, edad3, nacionalidad3, altura3, castelar,
-				mejorTiempo1000Mts3, medallasGanadas3, estiloDestacado3);
+		Nadador nadador1 = new Nadador(nombreJugador3, dni3, precio3, edad3, nacionalidad3, altura3, mejorTiempo1000Mts3, medallasGanadas3, estiloDestacado3);
 
 		agencia.agregarClub(castelar);
 		agencia.agregarClub(padua);
 		castelar.agregarNadador(nadador1);
+		agencia.asignarClubAJugador(castelar, nadador1);
 
 		agencia.paseNadador(castelar, padua, nadador1);
 
@@ -173,12 +175,12 @@ public class pruebaAgencia {
 		Integer puntos2 = 300;
 		Nacionalidad nacionalidad2 = Nacionalidad.PARAGUAY;
 		PosicionBasquet posicion2 = PosicionBasquet.ESCOLTA;
-		Basquetbolista basquetbolista1 = new Basquetbolista(nombreJugador2, dni2, precio2, edad2, nacionalidad2,
-				altura2, padua, posicion2, triples2, puntos2);
+		Basquetbolista basquetbolista1 = new Basquetbolista(nombreJugador2, dni2, precio2, edad2, nacionalidad2, altura2, posicion2, triples2, puntos2);
 
 		agencia.agregarClub(castelar);
 		agencia.agregarClub(padua);
 		padua.agregarBasquetbolista(basquetbolista1);
+		agencia.asignarClubAJugador(padua, basquetbolista1);
 		agencia.paseBasquetbolista(padua, castelar, basquetbolista1);
 
 		assertTrue(padua.getBasquetbolistas().contains(basquetbolista1));
@@ -207,12 +209,12 @@ public class pruebaAgencia {
 		Integer puntos2 = 99;
 		Nacionalidad nacionalidad2 = Nacionalidad.PARAGUAY;
 		PosicionBasquet posicion2 = PosicionBasquet.ESCOLTA;
-		Basquetbolista basquetbolista1 = new Basquetbolista(nombreJugador2, dni2, precio2, edad2, nacionalidad2,
-				altura2, padua, posicion2, triples2, puntos2);
+		Basquetbolista basquetbolista1 = new Basquetbolista(nombreJugador2, dni2, precio2, edad2, nacionalidad2, altura2, posicion2, triples2, puntos2);
 
 		agencia.agregarClub(castelar);
 		agencia.agregarClub(padua);
 		padua.agregarBasquetbolista(basquetbolista1);
+		agencia.asignarClubAJugador(padua, basquetbolista1);
 		agencia.paseBasquetbolista(padua, castelar, basquetbolista1);
 
 		assertTrue(padua.getBasquetbolistas().contains(basquetbolista1));
@@ -241,12 +243,13 @@ public class pruebaAgencia {
 		Integer rankingMunidialActual4 = 101;
 		Integer mejorRankinMundial = 90;
 
-		Tenista tenista1 = new Tenista(nombre4, dni4, precio4, edad4, nacionalidad4, altura4, castelar,
-				rankingMunidialActual4, mejorRankinMundial);
+		Tenista tenista1 = new Tenista(nombre4, dni4, precio4, edad4, nacionalidad4, altura4, rankingMunidialActual4,
+				mejorRankinMundial);
 
 		agencia.agregarClub(castelar);
 		agencia.agregarClub(padua);
 		castelar.agregarTenista(tenista1);
+		agencia.asignarClubAJugador(castelar, tenista1);
 		agencia.paseTenista(castelar, padua, tenista1);
 
 		assertTrue(castelar.getTenistas().contains(tenista1));
@@ -270,8 +273,7 @@ public class pruebaAgencia {
 		Double altura4 = 1.98;
 		Integer rankingMunidialActual4 = 101;
 		Integer mejorRankinMundial = 90;
-		Tenista tenista1 = new Tenista(nombre4, dni4, precio4, edad4, nacionalidad4, altura4, padua,
-				rankingMunidialActual4, mejorRankinMundial);
+		Tenista tenista1 = new Tenista(nombre4, dni4, precio4, edad4, nacionalidad4, altura4, rankingMunidialActual4, mejorRankinMundial);
 
 		String nombreJugador2 = "Lucas";
 		Integer dni2 = 43123321;
@@ -282,8 +284,7 @@ public class pruebaAgencia {
 		Integer puntos2 = 300;
 		Nacionalidad nacionalidad2 = Nacionalidad.PARAGUAY;
 		PosicionBasquet posicion2 = PosicionBasquet.ESCOLTA;
-		Basquetbolista basquetbolista1 = new Basquetbolista(nombreJugador2, dni2, precio2, edad2, nacionalidad2,
-				altura2, padua, posicion2, triples2, puntos2);
+		Basquetbolista basquetbolista1 = new Basquetbolista(nombreJugador2, dni2, precio2, edad2, nacionalidad2, altura2, posicion2, triples2, puntos2);
 
 		String nombreJugador3 = "Juan";
 		Integer dni3 = 24098765;
@@ -294,8 +295,7 @@ public class pruebaAgencia {
 		Double mejorTiempo1000Mts3 = 50.91;
 		Integer medallasGanadas3 = 4;
 		Estilo estiloDestacado3 = Estilo.ESPALDA;
-		Nadador nadador1 = new Nadador(nombreJugador3, dni3, precio3, edad3, nacionalidad3, altura3, padua,
-				mejorTiempo1000Mts3, medallasGanadas3, estiloDestacado3);
+		Nadador nadador1 = new Nadador(nombreJugador3, dni3, precio3, edad3, nacionalidad3, altura3, mejorTiempo1000Mts3, medallasGanadas3, estiloDestacado3);
 
 		String nombreJugador1 = "Pablo";
 		Integer dni1 = 24000908;
@@ -306,16 +306,20 @@ public class pruebaAgencia {
 		Integer asistencias1 = 20;
 		Nacionalidad nacionalidad1 = Nacionalidad.ARGENTINA;
 		PosicionFutbol posicion1 = PosicionFutbol.MEDIOCAMPISTA;
-		Futbolista futbolista1 = new Futbolista(nombreJugador1, dni1, precio1, edad1, nacionalidad1, altura1, padua,
-				posicion1, goles1, asistencias1);
+		Futbolista futbolista1 = new Futbolista(nombreJugador1, dni1, precio1, edad1, nacionalidad1, altura1, posicion1, goles1, asistencias1);
 
 		agencia.agregarClub(padua);
 		padua.agregarBasquetbolista(basquetbolista1);
+		agencia.asignarClubAJugador(padua, basquetbolista1);
 		padua.agregarFutbolista(futbolista1);
+		agencia.asignarClubAJugador(padua, futbolista1);
 		padua.agregarNadador(nadador1);
+		agencia.asignarClubAJugador(padua, nadador1);
 		padua.agregarTenista(tenista1);
+		agencia.asignarClubAJugador(padua, tenista1);
 
-		Double valorEsperado = 400.0 + 500.0 + 200.0 + 2000.0;
+
+		Double valorEsperado = 400.0 + 500.0 + 200.0 + 20000.0;
 		Double valorObtenido = agencia.cuantoValeUnClub(padua);
 
 		assertEquals(valorEsperado, valorObtenido);
@@ -337,8 +341,7 @@ public class pruebaAgencia {
 		Double altura4 = 1.98;
 		Integer rankingMunidialActual4 = 101;
 		Integer mejorRankinMundial = 90;
-		Tenista tenista1 = new Tenista(nombre4, dni4, precio4, edad4, nacionalidad4, altura4, padua,
-				rankingMunidialActual4, mejorRankinMundial);
+		Tenista tenista1 = new Tenista(nombre4, dni4, precio4, edad4, nacionalidad4, altura4, rankingMunidialActual4, mejorRankinMundial);
 
 		String nombreJugador2 = "Lucas";
 		Integer dni2 = 43123321;
@@ -350,7 +353,7 @@ public class pruebaAgencia {
 		Nacionalidad nacionalidad2 = Nacionalidad.PARAGUAY;
 		PosicionBasquet posicion2 = PosicionBasquet.ESCOLTA;
 		Basquetbolista basquetbolista1 = new Basquetbolista(nombreJugador2, dni2, precio2, edad2, nacionalidad2,
-				altura2, padua, posicion2, triples2, puntos2);
+				altura2, posicion2, triples2, puntos2);
 
 		String nombreJugador3 = "Juan";
 		Integer dni3 = 24098765;
@@ -361,8 +364,7 @@ public class pruebaAgencia {
 		Double mejorTiempo1000Mts3 = 50.91;
 		Integer medallasGanadas3 = 4;
 		Estilo estiloDestacado3 = Estilo.ESPALDA;
-		Nadador nadador1 = new Nadador(nombreJugador3, dni3, precio3, edad3, nacionalidad3, altura3, padua,
-				mejorTiempo1000Mts3, medallasGanadas3, estiloDestacado3);
+		Nadador nadador1 = new Nadador(nombreJugador3, dni3, precio3, edad3, nacionalidad3, altura3, mejorTiempo1000Mts3, medallasGanadas3, estiloDestacado3);
 
 		String nombreJugador1 = "Pablo";
 		Integer dni1 = 24000908;
@@ -373,14 +375,17 @@ public class pruebaAgencia {
 		Integer asistencias1 = 20;
 		Nacionalidad nacionalidad1 = Nacionalidad.ARGENTINA;
 		PosicionFutbol posicion1 = PosicionFutbol.MEDIOCAMPISTA;
-		Futbolista futbolista1 = new Futbolista(nombreJugador1, dni1, precio1, edad1, nacionalidad1, altura1, padua,
-				posicion1, goles1, asistencias1);
+		Futbolista futbolista1 = new Futbolista(nombreJugador1, dni1, precio1, edad1, nacionalidad1, altura1, posicion1, goles1, asistencias1);
 
 		agencia.agregarClub(padua);
 		padua.agregarBasquetbolista(basquetbolista1);
+		agencia.asignarClubAJugador(padua, basquetbolista1);
 		padua.agregarFutbolista(futbolista1);
+		agencia.asignarClubAJugador(padua, futbolista1);
 		padua.agregarNadador(nadador1);
+		agencia.asignarClubAJugador(padua, nadador1);
 		padua.agregarTenista(tenista1);
+		agencia.asignarClubAJugador(padua, tenista1);
 
 		Jugador valorEsperado = tenista1;
 		Jugador valorObtenido = padua.jugadorMasCaroDelClub();
