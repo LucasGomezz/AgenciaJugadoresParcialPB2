@@ -46,7 +46,7 @@ public class Club {
 
 	public void agregarTenista(Tenista tenista) {
 		tenistas.add(tenista);
-		
+
 	}
 
 	public void agregarBasquetbolista(Basquetbolista basquetbolista) {
