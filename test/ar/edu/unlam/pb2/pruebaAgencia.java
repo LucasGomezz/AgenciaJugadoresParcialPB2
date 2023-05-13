@@ -42,9 +42,8 @@ public class pruebaAgencia {
 		Basquetbolista basquetbolista1 = new Basquetbolista(nombreJugador2, dni2, precio2, edad2, nacionalidad2,
 				altura2, posicion2, triples2, puntos2);
 
-		padua.agregarFutbolista(futbolista1);
+		
 		agencia.asignarClubAJugador(padua, futbolista1);
-		padua.agregarBasquetbolista(basquetbolista1);
 		agencia.asignarClubAJugador(padua, basquetbolista1);
 		assertNotNull(padua.getFutbolistas());
 		assertNotNull(padua.getBasquetbolistas());
@@ -77,7 +76,6 @@ public class pruebaAgencia {
 
 		agencia.agregarClub(castelar);
 		agencia.agregarClub(padua);
-		castelar.agregarFutbolista(futbolista1);
 		agencia.asignarClubAJugador(castelar, futbolista1);
 
 		agencia.paseFutbolista(padua, castelar, futbolista1);
@@ -125,8 +123,6 @@ public class pruebaAgencia {
 
 		agencia.agregarClub(castelar);
 		agencia.agregarClub(padua);
-		castelar.agregarFutbolista(futbolista1);
-		padua.agregarFutbolista(futbolista2);
 		agencia.asignarClubAJugador(castelar, futbolista1);
 		agencia.asignarClubAJugador(padua, futbolista2);
 
@@ -165,7 +161,6 @@ public class pruebaAgencia {
 
 		agencia.agregarClub(castelar);
 		agencia.agregarClub(padua);
-		castelar.agregarFutbolista(futbolista1);
 		agencia.asignarClubAJugador(castelar, futbolista1);
 		agencia.paseFutbolista(castelar, padua, futbolista1);
 
@@ -201,9 +196,7 @@ public class pruebaAgencia {
 
 		agencia.agregarClub(castelar);
 		agencia.agregarClub(padua);
-		castelar.agregarNadador(nadador1);
 		agencia.asignarClubAJugador(castelar, nadador1);
-
 		agencia.paseNadador(castelar, padua, nadador1);
 
 		assertTrue(castelar.getNadadores().contains(nadador1));
@@ -236,7 +229,6 @@ public class pruebaAgencia {
 
 		agencia.agregarClub(castelar);
 		agencia.agregarClub(padua);
-		padua.agregarBasquetbolista(basquetbolista1);
 		agencia.asignarClubAJugador(padua, basquetbolista1);
 		agencia.paseBasquetbolista(padua, castelar, basquetbolista1);
 
@@ -271,7 +263,6 @@ public class pruebaAgencia {
 
 		agencia.agregarClub(castelar);
 		agencia.agregarClub(padua);
-		padua.agregarBasquetbolista(basquetbolista1);
 		agencia.asignarClubAJugador(padua, basquetbolista1);
 		agencia.paseBasquetbolista(padua, castelar, basquetbolista1);
 
@@ -306,7 +297,6 @@ public class pruebaAgencia {
 
 		agencia.agregarClub(castelar);
 		agencia.agregarClub(padua);
-		castelar.agregarTenista(tenista1);
 		agencia.asignarClubAJugador(castelar, tenista1);
 		agencia.paseTenista(castelar, padua, tenista1);
 
@@ -371,13 +361,9 @@ public class pruebaAgencia {
 				goles1, asistencias1);
 
 		agencia.agregarClub(padua);
-		padua.agregarBasquetbolista(basquetbolista1);
 		agencia.asignarClubAJugador(padua, basquetbolista1);
-		padua.agregarFutbolista(futbolista1);
 		agencia.asignarClubAJugador(padua, futbolista1);
-		padua.agregarNadador(nadador1);
 		agencia.asignarClubAJugador(padua, nadador1);
-		padua.agregarTenista(tenista1);
 		agencia.asignarClubAJugador(padua, tenista1);
 
 		Double valorEsperado = 400.0 + 500.0 + 200.0 + 20000.0;
@@ -442,13 +428,9 @@ public class pruebaAgencia {
 				goles1, asistencias1);
 
 		agencia.agregarClub(padua);
-		padua.agregarBasquetbolista(basquetbolista1);
 		agencia.asignarClubAJugador(padua, basquetbolista1);
-		padua.agregarFutbolista(futbolista1);
 		agencia.asignarClubAJugador(padua, futbolista1);
-		padua.agregarNadador(nadador1);
 		agencia.asignarClubAJugador(padua, nadador1);
-		padua.agregarTenista(tenista1);
 		agencia.asignarClubAJugador(padua, tenista1);
 
 		Jugador valorEsperado = tenista1;
@@ -483,7 +465,6 @@ public class pruebaAgencia {
 
 		agencia.agregarClub(castelar);
 		agencia.agregarClub(padua);
-		castelar.agregarFutbolista(futbolista1);
 		agencia.asignarClubAJugador(castelar, futbolista1);
 
 		assertTrue(agencia.getTraspasos().isEmpty());
@@ -533,8 +514,6 @@ public class pruebaAgencia {
 
 		agencia.agregarClub(castelar);
 		agencia.agregarClub(padua);
-		castelar.agregarFutbolista(futbolista1);
-		padua.agregarFutbolista(futbolista2);
 		agencia.asignarClubAJugador(castelar, futbolista1);
 		agencia.asignarClubAJugador(padua, futbolista2);
 
@@ -573,7 +552,6 @@ public class pruebaAgencia {
 
 		agencia.agregarClub(castelar);
 		agencia.agregarClub(padua);
-		castelar.agregarFutbolista(futbolista1);
 		agencia.asignarClubAJugador(castelar, futbolista1);
 
 		assertEquals(agencia.historialDeTraspasos(), "");
@@ -617,9 +595,7 @@ public class pruebaAgencia {
 				mejorRankinMundial2);
 
 		agencia.agregarClub(castelar);
-		castelar.agregarTenista(tenista1);
 		agencia.asignarClubAJugador(castelar, tenista1);
-		castelar.agregarTenista(tenista2);
 		agencia.asignarClubAJugador(castelar, tenista2);
 
 		assertNotNull(castelar.tenistaConMejorTopMundialActual());
@@ -660,9 +636,7 @@ public class pruebaAgencia {
 				goles2, asistencias2);
 
 		agencia.agregarClub(padua);
-		agencia.agregarClub(padua);
-		padua.agregarFutbolista(futbolista1);
-		padua.agregarFutbolista(futbolista2);
+		agencia.agregarClub(padua);;
 		agencia.asignarClubAJugador(padua, futbolista1);
 		agencia.asignarClubAJugador(padua, futbolista2);
 		
@@ -706,8 +680,6 @@ public class pruebaAgencia {
 
 		agencia.agregarClub(padua);
 		agencia.agregarClub(padua);
-		padua.agregarFutbolista(futbolista1);
-		padua.agregarFutbolista(futbolista2);
 		agencia.asignarClubAJugador(padua, futbolista1);
 		agencia.asignarClubAJugador(padua, futbolista2);
 		Double promedioEsperado=25.5;
@@ -752,8 +724,6 @@ public class pruebaAgencia {
 
 		agencia.agregarClub(padua);
 		agencia.agregarClub(padua);
-		padua.agregarBasquetbolista(basquetbolista1);
-		padua.agregarBasquetbolista(basquetbolista2);
 		agencia.asignarClubAJugador(padua, basquetbolista1);
 		agencia.asignarClubAJugador(padua, basquetbolista2);
 		
@@ -788,9 +758,7 @@ public class pruebaAgencia {
 		Basquetbolista basquetbolista1 = new Basquetbolista(nombreJugador1, dni1, precio1, edad1, nacionalidad1,
 				altura1, posicion2, triples1, puntos1);
 
-		padua.agregarFutbolista(futbolista1);
 		agencia.asignarClubAJugador(padua, futbolista1);
-		padua.agregarBasquetbolista(basquetbolista1);
 		agencia.asignarClubAJugador(padua, basquetbolista1);
 		assertNotNull(padua.getFutbolistas());
 		assertNotNull(padua.getBasquetbolistas());
@@ -829,9 +797,10 @@ public class pruebaAgencia {
 		PosicionFutbol posicion2 = PosicionFutbol.MEDIOCAMPISTA;
 		Futbolista futbolista2 = new Futbolista(nombreJugador2, dni2, precio2, edad2, nacionalidad2, altura2, posicion2,
 				goles2, asistencias2);
-
-		padua.agregarFutbolista(futbolista1);
-		padua.agregarFutbolista(futbolista2);
+		
+		agencia.asignarClubAJugador(padua, futbolista1);
+		agencia.asignarClubAJugador(padua, futbolista2);
+		
 		assertNotEquals(2,padua.getFutbolistas().size());
 		assertEquals(1,padua.getFutbolistas().size());
 	}

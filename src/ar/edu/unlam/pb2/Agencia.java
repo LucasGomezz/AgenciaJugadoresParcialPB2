@@ -8,8 +8,6 @@ public class Agencia {
 	private String nombre;
 	private HashSet<Club> clubes = new HashSet<>();
 	private ArrayList<Traspaso> traspasos = new ArrayList<>();
-	
-	
 
 	public Agencia(String nombre) {
 		this.nombre = nombre;
@@ -243,8 +241,19 @@ public class Agencia {
 		}
 		return basquetbolistaConMasTriples.getClub().getNombre();
 	}
+
 	public void asignarClubAJugador(Club club, Jugador jugador) {
 		jugador.setClub(club);
+		if (jugador instanceof Basquetbolista) {
+			club.agregarBasquetbolista((Basquetbolista) jugador);
+		} else if (jugador instanceof Tenista) {
+			club.agregarTenista((Tenista) jugador);
+		} else if (jugador instanceof Nadador) {
+			club.agregarNadador((Nadador) jugador);
+		} else if (jugador instanceof Futbolista) {
+			club.agregarFutbolista((Futbolista) jugador);
+		}
+
 	}
 
 	public HashSet<Club> getClubes() {
