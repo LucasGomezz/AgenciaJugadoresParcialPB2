@@ -601,7 +601,7 @@ public class pruebaAgencia {
 		Double altura1 = 1.98;
 		Integer rankingMundialActual1 = 10;
 		Integer mejorRankinMundial1 = 90;
-		
+
 		String nombre2 = "Damian";
 		Integer dni2 = 354555557;
 		Double precio2 = 5000.0;
@@ -621,10 +621,144 @@ public class pruebaAgencia {
 		agencia.asignarClubAJugador(castelar, tenista1);
 		castelar.agregarTenista(tenista2);
 		agencia.asignarClubAJugador(castelar, tenista2);
-		
+
 		assertNotNull(castelar.tenistaConMejorTopMundialActual());
-		System.out.print(castelar.tenistaConMejorTopMundialActual());
-		assertEquals(castelar.tenistaConMejorTopMundialActual(),"Rafael se encuentra en el top 10" );
+		assertEquals(castelar.tenistaConMejorTopMundialActual(), "Rafael se encuentra en el top 10");
+	}
+
+	@Test
+	public void queSePuedaConocerElFutbolistaConMejoresEstadisticasDeUnclub() {
+		String nombreAgencia = "Lion Agency";
+		Agencia agencia = new Agencia(nombreAgencia);
+		String nombreClub1 = "C.A.S.A Padua";
+		String localidad1 = "San Antonio De Padua";
+		Club padua = new Club(nombreClub1, localidad1);
+
+
+		String nombreJugador1 = "Pablo";
+		Integer dni1 = 24000908;
+		Double precio1 = 400.0;
+		Integer edad1 = 24;
+		Double altura1 = 1.70;
+		Integer goles1 = 10;
+		Integer asistencias1 = 20;
+		Nacionalidad nacionalidad1 = Nacionalidad.ARGENTINA;
+		PosicionFutbol posicion1 = PosicionFutbol.MEDIOCAMPISTA;
+		Futbolista futbolista1 = new Futbolista(nombreJugador1, dni1, precio1, edad1, nacionalidad1, altura1, posicion1,
+				goles1, asistencias1);
+
+		String nombreJugador2 = "Damian";
+		Integer dni2 = 24000888;
+		Double precio2 = 300.0;
+		Integer edad2 = 27;
+		Double altura2 = 1.73;
+		Integer goles2 = 8;
+		Integer asistencias2 = 25;
+		Nacionalidad nacionalidad2 = Nacionalidad.ARGENTINA;
+		PosicionFutbol posicion2 = PosicionFutbol.DEFENSOR;
+		Futbolista futbolista2 = new Futbolista(nombreJugador2, dni2, precio2, edad2, nacionalidad2, altura2, posicion2,
+				goles2, asistencias2);
+
+		agencia.agregarClub(padua);
+		agencia.agregarClub(padua);
+		padua.agregarFutbolista(futbolista1);
+		padua.agregarFutbolista(futbolista2);
+		agencia.asignarClubAJugador(padua, futbolista1);
+		agencia.asignarClubAJugador(padua, futbolista2);
+		
+		assertNotNull(padua.futbolistaConMejoresEstadisticas());
+		assertEquals(padua.futbolistaConMejoresEstadisticas(), "Damian con la suma de 33 goles y asistencias.");
+		
 	}
 	
+	@Test
+	public void queSePuedaConocerLaEdadPromedioDeLosJugadoresDeUnClub() {
+		String nombreAgencia = "Lion Agency";
+		Agencia agencia = new Agencia(nombreAgencia);
+		String nombreClub1 = "C.A.S.A Padua";
+		String localidad1 = "San Antonio De Padua";
+		Club padua = new Club(nombreClub1, localidad1);
+
+
+		String nombreJugador1 = "Pablo";
+		Integer dni1 = 24000908;
+		Double precio1 = 400.0;
+		Integer edad1 = 24;
+		Double altura1 = 1.70;
+		Integer goles1 = 10;
+		Integer asistencias1 = 20;
+		Nacionalidad nacionalidad1 = Nacionalidad.ARGENTINA;
+		PosicionFutbol posicion1 = PosicionFutbol.MEDIOCAMPISTA;
+		Futbolista futbolista1 = new Futbolista(nombreJugador1, dni1, precio1, edad1, nacionalidad1, altura1, posicion1,
+				goles1, asistencias1);
+
+		String nombreJugador2 = "Damian";
+		Integer dni2 = 24000888;
+		Double precio2 = 300.0;
+		Integer edad2 = 27;
+		Double altura2 = 1.73;
+		Integer goles2 = 8;
+		Integer asistencias2 = 25;
+		Nacionalidad nacionalidad2 = Nacionalidad.ARGENTINA;
+		PosicionFutbol posicion2 = PosicionFutbol.DEFENSOR;
+		Futbolista futbolista2 = new Futbolista(nombreJugador2, dni2, precio2, edad2, nacionalidad2, altura2, posicion2,
+				goles2, asistencias2);
+
+		agencia.agregarClub(padua);
+		agencia.agregarClub(padua);
+		padua.agregarFutbolista(futbolista1);
+		padua.agregarFutbolista(futbolista2);
+		agencia.asignarClubAJugador(padua, futbolista1);
+		agencia.asignarClubAJugador(padua, futbolista2);
+		Double promedioEsperado=25.5;
+		
+		assertNotNull(padua.edadPromedioDeLosJugadoresDelClub());
+		System.out.println(padua.edadPromedioDeLosJugadoresDelClub());
+		assertEquals(promedioEsperado, padua.edadPromedioDeLosJugadoresDelClub());
+	}
+	
+	@Test
+	public void queSePuedaConocerLaPosicionDeBasquetConMasTriplesDeUnClub() {
+		String nombreAgencia = "Lion Agency";
+		Agencia agencia = new Agencia(nombreAgencia);
+		String nombreClub1 = "C.A.S.A Padua";
+		String localidad1 = "San Antonio De Padua";
+		Club padua = new Club(nombreClub1, localidad1);
+
+
+		String nombreJugador1 = "Damian";
+		Integer dni1 = 41100321;
+		Double precio1 = 300.0;
+		Double altura1 = 1.76;
+		Integer edad1 = 24;
+		Integer triples1 = 70;
+		Integer puntos1 = 200;
+		Nacionalidad nacionalidad1 = Nacionalidad.ARGENTINA;
+		PosicionBasquet posicion1 = PosicionBasquet.ALERO;
+		Basquetbolista basquetbolista1 = new Basquetbolista(nombreJugador1, dni1, precio1, edad1, nacionalidad1,
+				altura1, posicion1, triples1, puntos1);
+
+
+		String nombreJugador2 = "Lucas";
+		Integer dni2 = 43123321;
+		Double precio2 = 200.0;
+		Double altura2 = 1.80;
+		Integer edad2 = 22;
+		Integer triples2 = 50;
+		Integer puntos2 = 300;
+		Nacionalidad nacionalidad2 = Nacionalidad.PARAGUAY;
+		PosicionBasquet posicion2 = PosicionBasquet.ESCOLTA;
+		Basquetbolista basquetbolista2 = new Basquetbolista(nombreJugador2, dni2, precio2, edad2, nacionalidad2,
+				altura2, posicion2, triples2, puntos2);
+
+		agencia.agregarClub(padua);
+		agencia.agregarClub(padua);
+		padua.agregarBasquetbolista(basquetbolista1);
+		padua.agregarBasquetbolista(basquetbolista2);
+		agencia.asignarClubAJugador(padua, basquetbolista1);
+		agencia.asignarClubAJugador(padua, basquetbolista2);
+		
+		assertNotNull(padua.posicionConMasTriples());
+		assertEquals(PosicionBasquet.ALERO, padua.posicionConMasTriples());
+	}
 }

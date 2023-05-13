@@ -61,7 +61,7 @@ public class Club {
 		nadadores.add(nadador);
 	}
 
-	public String futboilistaConMejoresEstadisticas() {
+	public String futbolistaConMejoresEstadisticas() {
 		Futbolista mejorFutbolista = null;
 		Integer mejorEstadistica = 0;
 		for (Futbolista futbolista : futbolistas) {
