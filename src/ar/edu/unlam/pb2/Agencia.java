@@ -23,7 +23,7 @@ public class Agencia {
 		String historial = "";
 		Integer traspasoN = 1;
 		for (Traspaso traspaso : traspasos) {
-			historial += "Traspaso N° " + traspasoN + " " + traspaso.toString();
+			historial += "Traspaso N° " + traspasoN + " " + traspaso.toString()+"\n";
 			traspasoN++;
 		}
 		return historial;
@@ -181,7 +181,7 @@ public class Agencia {
 				clubValeMas = club;
 			}
 		}
-		return "NOMBRE:" + clubValeMas.getNombre() + "/n" + "PRECIO:" + precioTotalMayor;
+		return "NOMBRE:" + clubValeMas.getNombre() + "\n" + "PRECIO:" + precioTotalMayor;
 
 	}
 
