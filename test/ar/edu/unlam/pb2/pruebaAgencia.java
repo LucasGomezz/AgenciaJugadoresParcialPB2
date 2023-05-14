@@ -557,8 +557,9 @@ public class pruebaAgencia {
 		assertEquals(agencia.historialDeTraspasos(), "");
 
 		agencia.paseFutbolista(padua, castelar, futbolista1);
+		System.out.println(agencia.historialDeTraspasos());
 		assertEquals(agencia.historialDeTraspasos(), "Traspaso N° 1 Pase del jugador: Pablo con un precio de $440.0 , "
-				+ "desde el club: C.A.S.A Padua, hacia el club: Argentino de Castelar, en la disciplina: FUTBOL");
+				+ "desde el club: C.A.S.A Padua, hacia el club: Argentino de Castelar, en la disciplina: FUTBOL"+"\n");
 		assertNotNull(agencia.historialDeTraspasos());
 	}
 
